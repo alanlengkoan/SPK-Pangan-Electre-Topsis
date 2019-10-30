@@ -1,0 +1,47 @@
+html, body {
+  background: linear-gradient(to right, #fc4b6c, #fc4b6c);
+  background-image: linear-gradient(to right, rgb(12, 42, 152), rgb(136, 186, 202));
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat-x: initial;
+  background-repeat-y: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: initial;
+}
+
+.card {
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.card .card-header {
+  background-color: #1e88e5;
+}
+
+.card .card-header h2 {
+  margin: 0;
+  color: white;
+  text-transform: uppercase;
+}
+
+.input-group-addon {
+  padding: 6px 12px;
+  font-size: 16px;
+  color: #8b9199;
+  font-weight: normal;
+  line-height: 1;
+  text-align: center;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 0;
+}
+
+input[type="text"], input[type="password"] {
+  border: none;
+  box-shadow: none;
+  font-size: 16px;
+  border-radius: 0;
+}
