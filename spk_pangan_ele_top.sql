@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 30 Okt 2019 pada 06.25
--- Versi server: 5.7.24
--- Versi PHP: 7.2.11
+-- Host: localhost
+-- Generation Time: Aug 28, 2022 at 05:28 PM
+-- Server version: 5.7.24
+-- PHP Version: 7.4.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `spk_pangan`
+-- Database: `spk_pangan_ele_top`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_alternatif`
+-- Table structure for table `tb_alternatif`
 --
 
 CREATE TABLE `tb_alternatif` (
@@ -34,17 +33,17 @@ CREATE TABLE `tb_alternatif` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_alternatif`
+-- Dumping data for table `tb_alternatif`
 --
 
 INSERT INTO `tb_alternatif` (`id_alternative`, `name`) VALUES
-('1', 'Jagung'),
 ('2', 'Kedelai'),
 ('3', 'Ubi Jalar'),
-('4', 'Kacang Hijau');
+('4', 'Kacang Hijau'),
+('5', 'test');
 
 --
--- Trigger `tb_alternatif`
+-- Triggers `tb_alternatif`
 --
 DELIMITER $$
 CREATE TRIGGER `hapus_alternatif` BEFORE DELETE ON `tb_alternatif` FOR EACH ROW BEGIN
@@ -56,7 +55,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_evaluasi`
+-- Table structure for table `tb_evaluasi`
 --
 
 CREATE TABLE `tb_evaluasi` (
@@ -66,15 +65,10 @@ CREATE TABLE `tb_evaluasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_evaluasi`
+-- Dumping data for table `tb_evaluasi`
 --
 
 INSERT INTO `tb_evaluasi` (`id_alternative`, `id_criteria`, `value`) VALUES
-(1, 1, 4),
-(1, 2, 2),
-(1, 3, 2),
-(1, 4, 2),
-(1, 5, 2),
 (2, 1, 4),
 (2, 2, 2),
 (2, 3, 2),
@@ -94,7 +88,7 @@ INSERT INTO `tb_evaluasi` (`id_alternative`, `id_criteria`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_history`
+-- Table structure for table `tb_history`
 --
 
 CREATE TABLE `tb_history` (
@@ -107,7 +101,7 @@ CREATE TABLE `tb_history` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_history`
+-- Dumping data for table `tb_history`
 --
 
 INSERT INTO `tb_history` (`id_history`, `nama`, `alamat`, `lokasi`, `bulan`, `tgl_akses`) VALUES
@@ -116,7 +110,7 @@ INSERT INTO `tb_history` (`id_history`, `nama`, `alamat`, `lokasi`, `bulan`, `tg
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_kriteria`
+-- Table structure for table `tb_kriteria`
 --
 
 CREATE TABLE `tb_kriteria` (
@@ -126,7 +120,7 @@ CREATE TABLE `tb_kriteria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_kriteria`
+-- Dumping data for table `tb_kriteria`
 --
 
 INSERT INTO `tb_kriteria` (`id_criteria`, `criteria`, `bulan`) VALUES
@@ -139,7 +133,7 @@ INSERT INTO `tb_kriteria` (`id_criteria`, `criteria`, `bulan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_kriteria_lokasi`
+-- Table structure for table `tb_kriteria_lokasi`
 --
 
 CREATE TABLE `tb_kriteria_lokasi` (
@@ -149,23 +143,23 @@ CREATE TABLE `tb_kriteria_lokasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_kriteria_lokasi`
+-- Dumping data for table `tb_kriteria_lokasi`
 --
 
 INSERT INTO `tb_kriteria_lokasi` (`id_kriteria`, `id_lokasi`, `kriteria`) VALUES
 (23, 4, '[{\"id_kriteria\":\"1\",\"kriteria\":\"Jenis Tanah\",\"weight\":\"1\"},{\"id_kriteria\":\"2\",\"kriteria\":\"Curah Hujan\",\"weight\":2,\"data_bulan\":{\"5\":\"200\",\"6\":\"220\",\"7\":\"245\"},\"ket\":\"Menengah (200-300 mm/bulan)\"},{\"id_kriteria\":\"3\",\"kriteria\":\"Drainase\",\"weight\":\"1\"},{\"id_kriteria\":\"4\",\"kriteria\":\"pH\",\"weight\":\"3\"},{\"id_kriteria\":\"5\",\"kriteria\":\"Ketinggian Tempat\",\"weight\":\"2\"}]'),
 (24, 5, '[{\"id_kriteria\":\"1\",\"kriteria\":\"Jenis Tanah\",\"weight\":\"4\"},{\"id_kriteria\":\"2\",\"kriteria\":\"Curah Hujan\",\"weight\":2,\"data_bulan\":{\"1\":\"250\",\"2\":\"220\",\"3\":\"178\"},\"ket\":\"Menengah (200-300 mm/bulan)\"},{\"id_kriteria\":\"3\",\"kriteria\":\"Drainase\",\"weight\":\"2\"},{\"id_kriteria\":\"4\",\"kriteria\":\"pH\",\"weight\":\"2\"},{\"id_kriteria\":\"5\",\"kriteria\":\"Ketinggian Tempat\",\"weight\":\"1\"}]'),
-(25, 6, '[{\"id_kriteria\":\"1\",\"kriteria\":\"Jenis Tanah\",\"weight\":\"4\"},{\"id_kriteria\":\"2\",\"kriteria\":\"Curah Hujan\",\"weight\":2,\"data_bulan\":{\"2\":\"220\",\"3\":\"178\",\"4\":\"240\"},\"ket\":\"Menengah (200-300 mm/bulan)\"},{\"id_kriteria\":\"3\",\"kriteria\":\"Drainase\",\"weight\":\"2\"},{\"id_kriteria\":\"4\",\"kriteria\":\"pH\",\"weight\":\"2\"},{\"id_kriteria\":\"5\",\"kriteria\":\"Ketinggian Tempat\",\"weight\":\"1\"}]'),
+(25, 6, '[{\"id_kriteria\":\"1\",\"kriteria\":\"Jenis Tanah\",\"weight\":\"4\"},{\"id_kriteria\":\"2\",\"kriteria\":\"Curah Hujan\",\"weight\":2,\"data_bulan\":{\"3\":\"178\",\"4\":\"240\",\"5\":\"200\"},\"ket\":\"Menengah (200-300 mm/bulan)\"},{\"id_kriteria\":\"3\",\"kriteria\":\"Drainase\",\"weight\":\"2\"},{\"id_kriteria\":\"4\",\"kriteria\":\"pH\",\"weight\":\"2\"},{\"id_kriteria\":\"5\",\"kriteria\":\"Ketinggian Tempat\",\"weight\":\"1\"}]'),
 (26, 7, '[{\"id_kriteria\":\"1\",\"kriteria\":\"Jenis Tanah\",\"weight\":\"2\"},{\"id_kriteria\":\"2\",\"kriteria\":\"Curah Hujan\",\"weight\":2,\"data_bulan\":{\"6\":\"220\",\"7\":\"245\",\"8\":\"245\"},\"ket\":\"Menengah (200-300 mm/bulan)\"},{\"id_kriteria\":\"3\",\"kriteria\":\"Drainase\",\"weight\":\"2\"},{\"id_kriteria\":\"4\",\"kriteria\":\"pH\",\"weight\":\"3\"},{\"id_kriteria\":\"5\",\"kriteria\":\"Ketinggian Tempat\",\"weight\":\"1\"}]'),
 (27, 8, '[{\"id_kriteria\":\"1\",\"kriteria\":\"Jenis Tanah\",\"weight\":\"3\"},{\"id_kriteria\":\"2\",\"kriteria\":\"Curah Hujan\",\"weight\":2,\"data_bulan\":{\"4\":\"240\",\"5\":\"200\",\"6\":\"220\"},\"ket\":\"Menengah (200-300 mm/bulan)\"},{\"id_kriteria\":\"3\",\"kriteria\":\"Drainase\",\"weight\":\"2\"},{\"id_kriteria\":\"4\",\"kriteria\":\"pH\",\"weight\":\"1\"},{\"id_kriteria\":\"5\",\"kriteria\":\"Ketinggian Tempat\",\"weight\":\"1\"}]'),
 (28, 9, '[{\"id_kriteria\":\"1\",\"kriteria\":\"Jenis Tanah\",\"weight\":\"4\"},{\"id_kriteria\":\"2\",\"kriteria\":\"Curah Hujan\",\"weight\":2,\"data_bulan\":{\"10\":\"200\",\"11\":\"210\",\"12\":\"222\"},\"ket\":\"Menengah (200-300 mm/bulan)\"},{\"id_kriteria\":\"3\",\"kriteria\":\"Drainase\",\"weight\":\"2\"},{\"id_kriteria\":\"4\",\"kriteria\":\"pH\",\"weight\":\"4\"},{\"id_kriteria\":\"5\",\"kriteria\":\"Ketinggian Tempat\",\"weight\":\"1\"}]'),
-(29, 10, '[{\"id_kriteria\":\"1\",\"kriteria\":\"Jenis Tanah\",\"weight\":\"2\"},{\"id_kriteria\":\"2\",\"kriteria\":\"Curah Hujan\",\"weight\":2,\"data_bulan\":{\"3\":\"178\",\"4\":\"240\",\"5\":\"200\"},\"ket\":\"Menengah (200-300 mm/bulan)\"},{\"id_kriteria\":\"3\",\"kriteria\":\"Drainase\",\"weight\":\"2\"},{\"id_kriteria\":\"4\",\"kriteria\":\"pH\",\"weight\":\"2\"},{\"id_kriteria\":\"5\",\"kriteria\":\"Ketinggian Tempat\",\"weight\":\"1\"}]'),
+(29, 10, '[{\"id_kriteria\":\"1\",\"kriteria\":\"Jenis Tanah\",\"weight\":\"2\"},{\"id_kriteria\":\"2\",\"kriteria\":\"Curah Hujan\",\"weight\":2,\"data_bulan\":{\"2\":\"220\",\"3\":\"178\",\"4\":\"240\"},\"ket\":\"Menengah (200-300 mm/bulan)\"},{\"id_kriteria\":\"3\",\"kriteria\":\"Drainase\",\"weight\":\"2\"},{\"id_kriteria\":\"4\",\"kriteria\":\"pH\",\"weight\":\"2\"},{\"id_kriteria\":\"5\",\"kriteria\":\"Ketinggian Tempat\",\"weight\":\"1\"}]'),
 (30, 11, '[{\"id_kriteria\":\"1\",\"kriteria\":\"Jenis Tanah\",\"weight\":\"4\"},{\"id_kriteria\":\"2\",\"kriteria\":\"Curah Hujan\",\"weight\":null,\"data_bulan\":{\"12\":\"222\",\"13\":null,\"14\":null},\"ket\":null},{\"id_kriteria\":\"3\",\"kriteria\":\"Drainase\",\"weight\":\"2\"},{\"id_kriteria\":\"4\",\"kriteria\":\"pH\",\"weight\":\"2\"},{\"id_kriteria\":\"5\",\"kriteria\":\"Ketinggian Tempat\",\"weight\":\"1\"}]');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_lokasi`
+-- Table structure for table `tb_lokasi`
 --
 
 CREATE TABLE `tb_lokasi` (
@@ -174,7 +168,7 @@ CREATE TABLE `tb_lokasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_lokasi`
+-- Dumping data for table `tb_lokasi`
 --
 
 INSERT INTO `tb_lokasi` (`id_lokasi`, `nama_lokasi`) VALUES
@@ -189,7 +183,7 @@ INSERT INTO `tb_lokasi` (`id_lokasi`, `nama_lokasi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_ranking`
+-- Table structure for table `tb_ranking`
 --
 
 CREATE TABLE `tb_ranking` (
@@ -200,17 +194,16 @@ CREATE TABLE `tb_ranking` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_ranking`
+-- Dumping data for table `tb_ranking`
 --
 
 INSERT INTO `tb_ranking` (`id_ranking`, `id_lokasi`, `hasil_electre`, `hasil_topsis`) VALUES
-(0, 5, '{\"1\":1,\"2\":1,\"3\":0,\"4\":0}', '{\"2\":0.6540672953078929,\"1\":0.6090717558372857,\"3\":0,\"4\":0}'),
 (0, 6, '{\"1\":1,\"2\":1,\"3\":0,\"4\":0}', '{\"2\":0.6540672953078929,\"1\":0.6090717558372857,\"3\":0,\"4\":0}');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_user`
+-- Table structure for table `tb_user`
 --
 
 CREATE TABLE `tb_user` (
@@ -221,7 +214,7 @@ CREATE TABLE `tb_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_user`
+-- Dumping data for table `tb_user`
 --
 
 INSERT INTO `tb_user` (`id_user`, `username`, `password`, `level`) VALUES
